@@ -69,7 +69,8 @@ defmodule LoggerSyslogBackend do
     buffer = Keyword.get(opts, :buffer)
 
     path =
-      Keyword.get_lazy(opts, :path, fn -> default_path() end) |> IO.iodata_to_binary()
+      Keyword.get_lazy(opts, :path, fn -> default_path() end)
+      |> IO.iodata_to_binary()
       |> String.to_charlist()
 
     %{

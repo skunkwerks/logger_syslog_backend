@@ -21,7 +21,7 @@ Requires Erlang 19 since it writes directly to the local syslog Unix Socket (/de
     config :logger,
       backends: [:console, {LoggerSyslogBackend, :syslog}]
 
-    config :logger, :syslog,
+    config :logger, :logger_syslog_backend,
       app_id: :my_app,  # defaults to the application of the caller module
       buffer: 10000,    # allocate a larger sending buffer. This should be
                         # bigger than Logger's truncate with default 8192
