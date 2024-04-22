@@ -149,6 +149,22 @@ defmodule LoggerSyslogBackend do
   defp severity(:alert), do: 1
   defp severity(:emergency), do: 0
 
+  defp facility_code(:kern), do: 0 <<< 3
+  defp facility_code(:user), do: 1 <<< 3
+  defp facility_code(:mail), do: 2 <<< 3
+  defp facility_code(:daemon), do: 3 <<< 3
+  defp facility_code(:auth), do: 4 <<< 3
+  defp facility_code(:syslog), do: 5 <<< 3
+  defp facility_code(:lpr), do: 6 <<< 3
+  defp facility_code(:news), do: 7 <<< 3
+  defp facility_code(:uucp), do: 8 <<< 3
+  defp facility_code(:cron), do: 9 <<< 3
+  defp facility_code(:authpriv), do: 10 <<< 3
+  defp facility_code(:ftp), do: 11 <<< 3
+  defp facility_code(:ntp), do: 12 <<< 3
+  defp facility_code(:security), do: 13 <<< 3
+  defp facility_code(:console), do: 14 <<< 3
+  defp facility_code(:clock), do: 15 <<< 3
   defp facility_code(:local0), do: 16 <<< 3
   defp facility_code(:local1), do: 17 <<< 3
   defp facility_code(:local2), do: 18 <<< 3
