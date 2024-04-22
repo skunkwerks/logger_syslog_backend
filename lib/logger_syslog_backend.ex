@@ -142,8 +142,12 @@ defmodule LoggerSyslogBackend do
 
   defp severity(:debug), do: 7
   defp severity(:info), do: 6
-  defp severity(:warn), do: 4
+  defp severity(:notice), do: 5
+  defp severity(:warning), do: 4
   defp severity(:error), do: 3
+  defp severity(:critical), do: 2
+  defp severity(:alert), do: 1
+  defp severity(:emergency), do: 0
 
   defp facility_code(:local0), do: 16 <<< 3
   defp facility_code(:local1), do: 17 <<< 3
