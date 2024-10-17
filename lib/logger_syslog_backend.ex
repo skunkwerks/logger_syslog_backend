@@ -18,6 +18,11 @@ defmodule LoggerSyslogBackend do
     {:ok, state}
   end
 
+  # erlang processes may still send :warn events
+  def handle_event({:warn, gl, event}, state) do
+    handle_event({:warning, gl, event}, state)
+  end
+
   def handle_event({level, _gl, {Logger, msg, ts, md}}, %{level: min_level} = state) do
     if is_nil(min_level) or Logger.compare_levels(level, min_level) != :lt do
       log_event(level, msg, ts, md, state)
